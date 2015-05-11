@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -11,9 +11,18 @@
             backward-compatibility can go here.
         -->
     </style>
-
+	
+    <color name="mycolor">#2b9eff</color>
+    
+    <style name="Theme.Default" parent="@android:style/Theme"></style>
+	<style name="Theme.NoTitle" parent="@android:style/Theme.NoTitleBar"></style>
+	<style name="Theme.FullScreen" parent="@android:style/Theme.NoTitleBar.Fullscreen"></style>
+    
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:background">@color/mycolor</item>
+      	<item name="android:windowBackground">@color/mycolor</item>
+      	<item name="android:colorBackground">@color/mycolor</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 

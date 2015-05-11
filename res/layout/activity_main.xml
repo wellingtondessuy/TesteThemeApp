@@ -6,25 +6,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/fundo_do_mar"
     tools:context="com.example.themetest.MainActivity" >
-
-    <TextView
-        android:id="@+id/myview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:text="@string/hello_world"/>
     
     <ImageButton
             android:id="@+id/add_button"
             android:contentDescription="@string/add"
+			android:padding="11dp"
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
         	android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="5dp"
-            android:src="@android:drawable/ic_input_add"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:elevation="6dp"
+            android:background="@drawable/circlebutton"
+			android:tint="@android:color/white"
+			android:src="@android:drawable/ic_input_add"/>
 
 </RelativeLayout>

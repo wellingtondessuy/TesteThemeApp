@@ -5,13 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageButton;
 
-public class ProfileActivity extends Activity {
+public class ProfileActivity extends Activity implements OnClickListener {
 
+	private ImageButton btnCancel;
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_profile);
+		btnCancel = (ImageButton) findViewById(R.id.cancel_button);
+		btnCancel.setOnClickListener(this);
 	}
 
 	@Override
@@ -43,5 +54,15 @@ public class ProfileActivity extends Activity {
 	public void onBackPressed() {
 		super.onBackPressed();
 		back();
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()){
+			case R.id.cancel_button:
+				back();
+			break;
+		}
+		
 	}
 }

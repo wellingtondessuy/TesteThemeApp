@@ -14,22 +14,28 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
 
 	private NotificationCompat.Builder mBuilder;
 	private String KEY_PROFILE = "com.example.themetest.MainActivity.call";
+	private ImageButton btnAdd;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		createNotification();
+		btnAdd = (ImageButton) findViewById(R.id.add_button);
+		btnAdd.setOnClickListener(this);
+		//createNotification();
 	}
 
 	public void createNotification() {
-		//Gera um número aleatório para ser o número da notificação que será emitida
+		//Gera um nï¿½mero aleatï¿½rio para ser o nï¿½mero da notificaï¿½ï¿½o que serï¿½ emitida
 		Random rand = new Random();
 		int notificationId = rand.nextInt(100 - 1) + 1;
 		
@@ -54,7 +60,7 @@ public class MainActivity extends Activity {
         //Intent intenta = new Intent(this, ProfileActivity.class);
         //PendingIntent pendingIntentShare = PendingIntent.getBroadcast(this, 0, intenta, PendingIntent.FLAG_UPDATE_CURRENT);
         
-        //Constrói a notificação
+        //Constrï¿½i a notificaï¿½ï¿½o
         mBuilder = new NotificationCompat.Builder(this)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
         .setSmallIcon(R.drawable.ic_launcher)
@@ -65,19 +71,17 @@ public class MainActivity extends Activity {
         .addAction(android.R.drawable.ic_menu_camera, "Camera", pendingIntentCamera)
         .setContentIntent(pendingIntentCamera);
  
-        //Monta a notificação
+        //Monta a notificaï¿½ï¿½o
         Notification n = mBuilder.build();
        
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        //Envia a notificação
+        //Envia a notificaï¿½ï¿½o
         notificationManager.notify(notificationId, n);
 	}
 	
-	
-	
 	public void call() {
-		Toast.makeText(this, "No método call().", Toast.LENGTH_LONG).show();		
+		Toast.makeText(this, "No mï¿½todo call().", Toast.LENGTH_LONG).show();		
 	}
 	
 	@Override
@@ -97,5 +101,22 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()) {
+			case R.id.add_button:
+				Intent intent = new Intent(this, ProfileActivity.class);
+				startActivity(intent);
+				finish();
+			break;
+		}	
+	}
+	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		
 	}
 }

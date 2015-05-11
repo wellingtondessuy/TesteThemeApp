@@ -38,4 +38,10 @@ public class ProfileActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		back();
+	}
 }
